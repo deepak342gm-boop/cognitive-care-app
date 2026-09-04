@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+<div id="loginScreen" class="login-screen">
+
+  <div class="login-card">
+
+    <div class="login-logo">🧠</div>
+
+    <h1>Cognitive Care</h1>
+
+    <p class="login-subtitle">
+      AI-Powered Memory & Cognitive Assistance
+    </p>
+
+    <div class="developer-tag">
+      Developer: <strong>KRISHNA JAISWAL</strong>
+    </div>
+
+    <div class="form-group">
+      <label>👤 Patient Name</label>
+      <input
+        type="text"
+        id="loginName"
+        placeholder="Enter patient name"
+        autocomplete="name"
+      >
+    </div>
+
+    <div class="form-group">
+      <label>🎂 Age</label>
+      <input
+        type="number"
+        id="loginAge"
+        placeholder="Enter age"
+        min="1"
+        max="120"
+      >
+    </div>
+
+    <div class="form-group">
+      <label>🌐 Choose Language</label>
+
+      <div class="language-options">
+
+        <button
+          type="button"
+          class="language-btn active"
+          data-language="en"
+        >
+          🇬🇧 English
+        </button>
+
+        <button
+          type="button"
+          class="language-btn"
+          data-language="hi"
+        >
+          🇮🇳 हिंदी
+        </button>
+
+      </div>
+    </div>
+
+    <button
+      type="button"
+      id="continueBtn"
+      class="continue-btn"
+    >
+      Continue →
+    </button>
+
+    <p class="login-note">
+      Your information is stored only on this device.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN APPLICATION
+========================= -->
+
+<div id="mainApp" class="app hidden">
+
+  <header class="topbar">
+
+    <div>
+      <h1>🧠 Cognitive Care</h1>
+
+      <p id="headerSubtitle">
+        AI-Powered Cognitive Assistance
+      </p>
+    </div>
+
+    <button id="changeProfileBtn" class="small-btn">
+      Profile
+    </button>
+
+  </header>
+
+
+  <section class="welcome card">
+
+    <div>
+
+      <h2>
+        Hello, <span id="patientName">Patient</span> 👋
+      </h2>
+
+      <p>
+        Age: <strong id="patientAge">--</strong>
+      </p>
+
+      <p id="welcomeText">
+        Let's keep your mind active today.
+      </p>
+
+    </div>
+
+    <div class="developer">
+      <span>Developer</span>
+      <strong>KRISHNA JAISWAL</strong>
+    </div>
+
+  </section>
+
+
+  <!-- NAVIGATION -->
+
+  <nav class="tabs">
+
+    <button class="tab active" data-page="home">
+      🏠 <span>Home</span>
+    </button>
+
+    <button class="tab" data-page="games">
+      🧠 <span>Games</span>
+    </button>
+
+    <button class="tab" data-page="reminders">
+      ⏰ <span>Reminders</span>
+    </button>
+
+    <button class="tab" data-page="progress">
+      📊 <span>Progress</span>
+    </button>
+
+    <button class="tab" data-page="caregiver">
+      👨‍⚕️ <span>Caregiver</span>
+    </button>
+
+  </nav>
+
+
+  <!-- =========================
+       HOME
+  ========================= -->
+
+  <main id="home" class="page active">
+
+    <section class="hero card">
+
+      <div class="hero-icon">🧠</div>
+
+      <h2 id="homeTitle">
+        Keep Your Mind Active
+      </h2>
+
+      <p id="homeDescription">
+        Play simple cognitive games, remember daily
+        activities and stay on track with your routine.
+      </p>
+
+      <button
+        class="primary"
+        onclick="openPage('games')"
+      >
+        🧠 Start Cognitive Games
+      </button>
+
+      <button
+        class="voice-btn"
+        onclick="speakWelcome()"
+      >
+        🎙️ Voice Assistant
+      </button>
+
+    </section>
+
+
+    <section class="grid">
+
+      <div class="feature card">
+
+        <div class="feature-icon">🧩</div>
+
+        <h3>Memory</h3>
+
+        <p>
+          Improve memory with easy activities.
+        </p>
+
+      </div>
+
+
+      <div class="feature card">
+
+        <div class="feature-icon">🎯</div>
+
+        <h3>Attention</h3>
+
+        <p>
+          Improve concentration and focus.
+        </p>
+
+      </div>
+
+
+      <div class="feature card">
+
+        <div class="feature-icon">🔷</div>
+
+        <h3>Patterns</h3>
+
+        <p>
+          Practice pattern recognition.
+        </p>
+
+      </div>
+
+
+      <div class="feature card">
+
+        <div class="feature-icon">💧</div>
+
+        <h3>Wellness</h3>
+
+        <p>
+          Remember water and daily activities.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       GAMES
+  ========================= -->
+
+  <main id="games" class="page">
+
+    <section class="card">
+
+      <h2>🧠 Cognitive Games</h2>
+
+      <p class="subtitle">
+        Choose an activity
+      </p>
+
+
+      <div class="game-menu">
+
+        <button
+          class="game-card"
+          onclick="startMemoryGame()"
+        >
+
+          <span>🃏</span>
+
+          <strong>Memory Match</strong>
+
+          <small>
+            Find matching objects
+          </small>
+
+        </button>
+
+
+        <button
+          class="game-card"
+          onclick="startNumberGame()"
+        >
+
+          <span>🔢</span>
+
+          <strong>Number Memory</strong>
+
+          <small>
+            Remember the number
+          </small>
+
+        </button>
+
+
+        <button
+          class="game-card"
+          onclick="startPatternGame()"
+        >
+
+          <span>🔷</span>
+
+          <strong>Pattern Recognition</strong>
+
+          <small>
+            Find the correct pattern
+          </small>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section class="card game-area">
+
+      <h2 id="gameTitle">
+        Choose a game
+      </h2>
+
+      <div id="gameContent">
+
+        <div class="empty-game">
+
+          🧠
+
+          <p>
+            Select a cognitive game above.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       REMINDERS
+  ========================= -->
+
+  <main id="reminders" class="page">
+
+    <section class="card">
+
+      <h2>⏰ Daily Reminders</h2>
+
+      <p class="subtitle">
+        Medicine, hydration, activities and appointments
+      </p>
+
+
+      <div class="reminder-form">
+
+        <input
+          id="reminderText"
+          type="text"
+          placeholder="Example: Take medicine"
+        >
+
+        <input
+          id="reminderTime"
+          type="time"
+        >
+
+        <button
+          class="primary"
+          onclick="addReminder()"
+        >
+          Add Reminder
+        </button>
+
+      </div>
+
+
+      <div id="reminderList"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       PROGRESS
+  ========================= -->
+
+  <main id="progress" class="page">
+
+    <section class="card">
+
+      <h2>📊 Cognitive Progress</h2>
+
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <strong id="gamesPlayed">
+            0
+          </strong>
+
+          <span>
+            Games Played
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong id="bestScore">
+            0
+          </strong>
+
+          <span>
+            Best Score
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong id="streak">
+            0
+          </strong>
+
+          <span>
+            Day Streak
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="progress-box">
+
+        <h3>
+          🧠 Cognitive Engagement
+        </h3>
+
+        <div class="progress-bar">
+
+          <div id="progressFill"></div>
+
+        </div>
+
+        <p id="progressText">
+          Start playing games to build your progress.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       CAREGIVER
+  ========================= -->
+
+  <main id="caregiver" class="page">
+
+    <section class="card">
+
+      <h2>
+        👨‍⚕️ Caregiver Dashboard
+      </h2>
+
+
+      <div class="patient-card">
+
+        <div class="patient-avatar">
+          👵
+        </div>
+
+        <div>
+
+          <h3 id="carePatientName">
+            Patient
+          </h3>
+
+          <p>
+            Cognitive activity monitoring
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="care-grid">
+
+        <div>
+
+          <span>
+            🧠 Games
+          </span>
+
+          <strong id="careGames">
+            0
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            🏆 Best Score
+          </span>
+
+          <strong id="careScore">
+            0
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            ⏰ Reminders
+          </span>
+
+          <strong id="careReminders">
+            0
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            📈 Engagement
+          </span>
+
+          <strong id="careEngagement">
+            0%
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="notice">
+
+        ℹ️ This dashboard is designed for activity
+        monitoring and is not a medical diagnosis.
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      AI-Powered Cognitive Assistance Platform
+    </p>
+
+    <strong>
+      Developer: KRISHNA JAISWAL
+    </strong>
+
+    <small>
+      Designed for elderly-friendly digital care
+    </small>
+
+  </footer>
+
+</div>
+<script src="Script.js"></script>
+</body>
+</html>
