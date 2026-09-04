@@ -34,7 +34,7 @@ jobs:
           mkdir -p app/src/main/res/values
           mkdir -p app/src/main/assets
 
-          cp index.html app/src/main/assets/index.html
+          cp Index.html app/src/main/assets/index.html
           cp Style.css app/src/main/assets/Style.css
           cp Script.js app/src/main/assets/Script.js
 
